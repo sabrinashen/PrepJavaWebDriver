@@ -22,7 +22,7 @@ pipeline {
                },
                "firefox-module":{
                	//sh 'mvn clean test -DsuiteXmlFile=firefox_test.xml'
-               	sh 'each "this is firefox test"'
+               	sh 'echo "this is firefox test"'
                }
         )
       }
