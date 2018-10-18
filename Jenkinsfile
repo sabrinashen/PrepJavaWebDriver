@@ -34,7 +34,7 @@ pipeline {
 		sh 'echo "selenium grid down"'
 		sh 'sudo docker-compose down'
 		archiveArtifacts artifacts: 'log/**', fingerprint: true
-		//archiveArtifacts artifacts: 'test-output/**', fingerprint: true
+		archiveArtifacts artifacts: 'test-output/**', fingerprint: true
   	}
   }
 }

@@ -22,7 +22,7 @@ public class GoogleHomeButtonCheck extends BaseTestRun {
 		googleResultPage.baseTopNavBar().isDisplayed();
 		googleResultPage.lnkFirst().click();
 		WebDriverFunction.getCurrentUrl();
-		googleResultPage.lnkCannotLocate().isDisplayed();
+//		googleResultPage.lnkCannotLocate().isDisplayed();
 		
 		
 	}
