@@ -1,11 +1,16 @@
 pipeline {
   agent any
+  environment {
+    // docker path: /usr/local/bin
+    // bundle path: /Users/ericyang/.rbenv/shims
+    PATH = "$PATH:/usr/local/bin"
+  }
   stages {
     stage('docker-compose up') {
       steps {
       	sh 'sudo docker-compose up -d'
       	sh 'sudo docker-compose scale chrome=5'
-      	sh 'sudo docker-compose scale chrome=5'
+      	sh 'sudo docker-compose scale firefox=5'
       	sh 'sudo docker ps -a'
       }
     }
