@@ -18,10 +18,10 @@ pipeline {
       steps {
       	parallel(
                "chrome-module":{
-               	sh 'bundle exec parallel_rspec test/google/'
+               	sh 'mvn clean test -DsuiteXmlFile=chrome_test.xml'
                },
                "firefox-module":{
-               	sh 'bundle exec parallel_rspec test/baidu/'
+               	sh 'mvn clean test -DsuiteXmlFile=firefox_test.xml'
                }
         )
       }

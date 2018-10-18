@@ -3,7 +3,7 @@ package com.sabrina.test.library.page;
 import com.sabrina.test.frame.elements.ButtonElement;
 import com.sabrina.test.frame.elements.InputElement;
 import com.sabrina.test.frame.utilities.Helper;
-import com.sabrina.test.frame.utilities.WebDriverFunc;
+import com.sabrina.test.frame.utilities.WebDriverFunction;
 
 public class GoogleHomePage {
 
@@ -15,13 +15,13 @@ public class GoogleHomePage {
 
 	private ButtonElement btnGoogleSearch = new ButtonElement("name", "btnK", "btnGoogleSearch");
 	public ButtonElement btnGoogleSearch() {
-		btnGoogleSearch.setWebElement(WebDriverFunc.findElement(Helper.getByMechanism(btnGoogleSearch)));
+		btnGoogleSearch.setWebElement(WebDriverFunction.findElement(Helper.getByMechanism(btnGoogleSearch)));
 		return btnGoogleSearch;
 	}
 	
 	private InputElement inptSearch = new InputElement("id", "lst-ib", "inptSearch");
 	public InputElement inptSearch() {
-		inptSearch.setWebElement(WebDriverFunc.findElement(Helper.getByMechanism(inptSearch)));
+		inptSearch.setWebElement(WebDriverFunction.findElement(Helper.getByMechanism(inptSearch)));
 		return inptSearch;
 	}
 	

@@ -10,21 +10,17 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class WebDriverFunc {
+public class WebDriverFunction {
 
 	public static WebDriver driver;
 	
 	public static void startBrowser(String browser) {
-		switch (browser) {
-		case "chrome":
+		if (browser.equals("chrome") || browser.equals("Chrome")) {
 			driver = new ChromeDriver();
-			break;
-		case "firefox":
+		} else if (browser.equals("firefox") || browser.equals("Firefox")) {
 			driver = new FirefoxDriver();
-			break;
-		default:
+		} else {
 			driver = new ChromeDriver();
-			break;
 		}
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}

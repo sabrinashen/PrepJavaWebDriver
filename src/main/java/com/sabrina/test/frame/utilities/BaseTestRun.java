@@ -5,24 +5,20 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
 public class BaseTestRun {
-	
-//	public WebDriver driver = WebDriverFunc.driver;
-	
+		
 	@BeforeTest
 	@Parameters("browser")
 	public void setUpDriver(String browser) {
-		WebDriverFunc.startBrowser(browser);
+		WebDriverFunction.startBrowser(browser);
 		
 		Helper.logInfo("Web Driver has been set up!");
-		Waiter.init(WebDriverFunc.driver, 30);
+		Waiter.init(WebDriverFunction.driver, 30);
 		
 	}
 	
-	
-	
 	@AfterTest
 	public void tearDownDriver() {
-		WebDriverFunc.quitDriver();
+		WebDriverFunction.quitDriver();
 	}
 	
 

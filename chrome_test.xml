@@ -3,8 +3,11 @@
 	<test name="chrome demo test">
 		<parameter name="browser" value="chrome" />
 
-		<classes>
-			<class name="com.sabrina.test.testcases.*"></class>
-		</classes>
+		<!-- <classes> <class name="com.sabrina.test.cases.GoogleHomeButtonCheck2"></class> 
+			</classes> -->
+		<packages>
+			<package name="com.sabrina.test.cases" />
+		</packages>
+
 	</test>
 </suite>
