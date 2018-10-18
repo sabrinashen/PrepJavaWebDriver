@@ -2,7 +2,6 @@ pipeline {
   agent any
   environment {
     // docker path: /usr/local/bin
-    // bundle path: /Users/ericyang/.rbenv/shims
     PATH = "$PATH:/usr/local/bin"
   }
   stages {
@@ -18,10 +17,10 @@ pipeline {
     stage('run script') {
       steps {
       	parallel(
-               "google-module":{
+               "chrome-module":{
                	sh 'bundle exec parallel_rspec test/google/'
                },
-               "baidu-module":{
+               "firefox-module":{
                	sh 'bundle exec parallel_rspec test/baidu/'
                }
         )
