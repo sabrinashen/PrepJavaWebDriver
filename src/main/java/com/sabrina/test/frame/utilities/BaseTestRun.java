@@ -9,7 +9,7 @@ public class BaseTestRun {
 	@BeforeTest
 	@Parameters("browser")
 	public void setUpDriver(String browser) {
-		WebDriverFunction.startBrowser(browser);
+		WebDriverFunction.startRemoteBrowser(browser);
 		
 		Helper.logInfo("Web Driver has been set up!");
 		Waiter.init(WebDriverFunction.driver, 30);

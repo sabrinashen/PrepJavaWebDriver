@@ -1,5 +1,7 @@
 package com.sabrina.test.frame.utilities;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -9,10 +11,12 @@ import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class WebDriverFunction {
 
-	public static WebDriver driver;
+	public static RemoteWebDriver driver;
 	
 	public static void startBrowser(String browser) {
 		if (browser.equals("chrome") || browser.equals("Chrome")) {
@@ -21,6 +25,26 @@ public class WebDriverFunction {
 			driver = new FirefoxDriver();
 		} else {
 			driver = new ChromeDriver();
+		}
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	}
+	
+	public static void startRemoteBrowser(String browser) {
+		try {
+			DesiredCapabilities capabillities = null;
+			if (browser.equals("chrome") || browser.equals("Chrome")) {
+				capabillities = DesiredCapabilities.chrome();
+				capabillities.setBrowserName("chrome"); 
+			} else if (browser.equals("firefox") || browser.equals("Firefox")) {
+				capabillities = DesiredCapabilities.firefox();
+				capabillities.setBrowserName("firefox"); 
+			} else {
+				capabillities = DesiredCapabilities.chrome();
+			    capabillities.setBrowserName("chrome"); 
+			}
+			driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabillities);
+		} catch(MalformedURLException e) {
+			Helper.logException("Failed to Start Remote Driver with exectption", e);
 		}
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}

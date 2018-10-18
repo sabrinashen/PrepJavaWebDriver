@@ -21,8 +21,8 @@ pipeline {
                	sh 'mvn clean test -DsuiteXmlFile=chrome_test.xml'
                },
                "firefox-module":{
-               	//sh 'mvn clean test -DsuiteXmlFile=firefox_test.xml'
-               	sh 'echo "this is firefox test"'
+               	sh 'mvn clean test -DsuiteXmlFile=firefox_test.xml'
+               	//sh 'echo "this is firefox test"'
                }
         )
       }
