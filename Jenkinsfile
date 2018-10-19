@@ -22,7 +22,6 @@ pipeline {
                },
                "firefox-module":{
                	sh 'mvn clean test -DsuiteXmlFile=firefox_test.xml'
-               	//sh 'echo "this is firefox test"'
                }
         )
       }
@@ -33,7 +32,7 @@ pipeline {
 	always {
 		sh 'echo "selenium grid down"'
 		sh 'sudo docker-compose down'
-		archiveArtifacts artifacts: 'log/**', fingerprint: true
+		//archiveArtifacts artifacts: 'log/**', fingerprint: true
 		archiveArtifacts artifacts: 'test-output/**', fingerprint: true
   	}
   }
