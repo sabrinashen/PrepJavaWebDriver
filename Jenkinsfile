@@ -7,6 +7,7 @@ pipeline {
   stages {
     stage('docker-compose up') {
       steps {
+      	sh 'sudo docker-compose down'
       	sh 'sudo docker-compose up -d'
       	sh 'sudo docker-compose scale chrome=5'
       	sh 'sudo docker-compose scale firefox=5'
@@ -24,7 +25,7 @@ pipeline {
       steps {
       	parallel(
                "chrome-module":{
-               	sh 'mvn test -DsuiteXmlFile=chrome_test.xml'
+               	sh 'mvn test -DsuiteXmlFile1=chrome_test.xml -DsuiteXmlFile2=firefox_test.xml'
                },
                "firefox-module":{
                	sh 'mvn test -DsuiteXmlFile=firefox_test.xml'

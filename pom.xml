@@ -40,7 +40,8 @@
         				<log4j2.configuration>src/main/java/log4j2.xml</log4j2.configuration>
       				</systemPropertyVariables> -->
                     <suiteXmlFiles>
-                        <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
+                        <suiteXmlFile>${suiteXmlFile1}</suiteXmlFile>
+                        <suiteXmlFile>${suiteXmlFile2}</suiteXmlFile>
                     </suiteXmlFiles>
                     <!-- <redirectTestOutputToFile>true</redirectTestOutputToFile> -->
                 </configuration>
