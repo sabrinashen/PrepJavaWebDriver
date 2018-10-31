@@ -8,20 +8,26 @@ pipeline {
     stage('docker-compose up') {
       steps {
       	sh 'sudo docker-compose up -d'
-      	sh 'sudo docker-compose scale chrome=10'
-      	sh 'sudo docker-compose scale firefox=10'
+      	sh 'sudo docker-compose scale chrome=5'
+      	sh 'sudo docker-compose scale firefox=5'
       	sh 'sudo docker ps -a'
       }
+    }
+    
+    stage('maven clean') {
+    	steps {
+    		sh 'mvn clean'
+    	}
     }
       
     stage('run script') {
       steps {
       	parallel(
                "chrome-module":{
-               	sh 'mvn clean test -DsuiteXmlFile=chrome_test.xml'
+               	sh 'mvn test -DsuiteXmlFile=chrome_test.xml'
                },
                "firefox-module":{
-               	sh 'mvn clean test -DsuiteXmlFile=firefox_test.xml'
+               	sh 'mvn test -DsuiteXmlFile=firefox_test.xml'
                }
         )
       }
