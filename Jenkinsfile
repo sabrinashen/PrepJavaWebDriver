@@ -8,8 +8,8 @@ pipeline {
     stage('docker-compose up') {
       steps {
       	sh 'sudo docker-compose up -d'
-      	sh 'sudo docker-compose scale chrome=5'
-      	sh 'sudo docker-compose scale firefox=5'
+      	sh 'sudo docker-compose scale chrome=10'
+      	sh 'sudo docker-compose scale firefox=10'
       	sh 'sudo docker ps -a'
       }
     }
@@ -32,7 +32,6 @@ pipeline {
 	always {
 		sh 'echo "selenium grid down"'
 		sh 'sudo docker-compose down'
-		//archiveArtifacts artifacts: 'log/**', fingerprint: true
 		archiveArtifacts artifacts: 'target/surefire-reports/**', fingerprint: true
   	}
   }

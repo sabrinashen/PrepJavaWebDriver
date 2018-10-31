@@ -8,24 +8,41 @@
 	<packaging>jar</packaging>
 	<name>PrepJavaWebDriver</name>
 	<url>http://maven.apache.org</url>
+	
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+		<!-- <log4j2.configuration>src/main/java/log4j2.xml</log4j2.configuration> -->
 	</properties>
 	
+	
+	
 	<build>
+		<resources>
+      		<resource>
+          		<directory>src/main/java</directory>
+          		<includes>
+              		<include>log4j2.xml</include>
+          		</includes>
+          		<!-- <targetPath>target/surefire-reports</targetPath> -->
+      		</resource>
+  		</resources>
         
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.14.1</version>
+                <version>2.22.1</version>
                 <configuration>
+                	<!-- <systemPropertyVariables>
+        				<log4j2.configuration>src/main/java/log4j2.xml</log4j2.configuration>
+      				</systemPropertyVariables> -->
                     <suiteXmlFiles>
                         <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
                     </suiteXmlFiles>
+                    <!-- <redirectTestOutputToFile>true</redirectTestOutputToFile> -->
                 </configuration>
             </plugin>
         </plugins>
@@ -53,12 +70,25 @@
 			<version>6.11</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/log4j/log4j -->
+		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
 		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.17</version>
+    		<groupId>org.apache.logging.log4j</groupId>
+    		<artifactId>log4j-core</artifactId>
+    		<version>2.11.1</version>
 		</dependency>
+		
+		<!--  https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
+		<dependency>
+    		<groupId>org.apache.logging.log4j</groupId>
+    		<artifactId>log4j-api</artifactId>
+    		<version>2.11.1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl -->
+		<!-- <dependency>
+   			<groupId>org.apache.logging.log4j</groupId>
+    		<artifactId>log4j-slf4j-impl</artifactId>
+    		<version>2.11.1</version>
+		</dependency> -->
 
 		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
 		<dependency>

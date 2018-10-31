@@ -2,6 +2,8 @@ package com.sabrina.test.frame.utilities;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -14,11 +16,11 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-public class WebDriverFunction {
-
-	public static RemoteWebDriver driver;
+public class WebDriverFunction implements WebDriver {
 	
-	public static void startBrowser(String browser) {
+	WebDriver driver;
+
+	public void startBrowser(String browser) {
 		if (browser.equals("chrome") || browser.equals("Chrome")) {
 			driver = new ChromeDriver();
 		} else if (browser.equals("firefox") || browser.equals("Firefox")) {
@@ -29,7 +31,7 @@ public class WebDriverFunction {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
 	
-	public static void startRemoteBrowser(String browser) {
+	public void startRemoteBrowser(String browser) {
 		try {
 			DesiredCapabilities capabillities = null;
 			if (browser.equals("chrome") || browser.equals("Chrome")) {
@@ -49,7 +51,7 @@ public class WebDriverFunction {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
 	
-	public static void quitDriver() {
+	public void quitDriver() {
 		if (null != driver) {
 			driver.quit();
 			driver = null;
@@ -59,18 +61,18 @@ public class WebDriverFunction {
 		}
 	}
 	
-	public static void get(String url) {
+	public void get(String url) {
 		driver.get(url);
 		Helper.logInfo("Open URL - " + url);
 	}
 	
-	public static String getCurrentUrl() {
+	public String getCurrentUrl() {
 		String currentUrl = driver.getCurrentUrl();
 		Helper.logInfo("Get Current URL is " + currentUrl);
 		return currentUrl;
 	}
 	
-	public static WebElement findElement(By by) {
+	public WebElement findElement(By by) {
 		WebElement we = null;
 		try {
 			we = driver.findElement(by);
@@ -81,7 +83,65 @@ public class WebDriverFunction {
 		}
 		return we;
 	}
-	
-	
+
+	@Override
+	public String getTitle() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<WebElement> findElements(By by) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getPageSource() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void close() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void quit() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Set<String> getWindowHandles() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getWindowHandle() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public TargetLocator switchTo() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Navigation navigate() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Options manage() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

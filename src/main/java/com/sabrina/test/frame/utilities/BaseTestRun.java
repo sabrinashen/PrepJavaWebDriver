@@ -1,24 +1,34 @@
 package com.sabrina.test.frame.utilities;
 
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
 public class BaseTestRun {
+	
+	WebDriverFunction driver = new WebDriverFunction();
 		
-	@BeforeTest
+	public WebDriverFunction getDriver() {
+		return driver;
+	}
+
+	public void setDriver(WebDriverFunction driver) {
+		this.driver = driver;
+	}
+
+	@BeforeClass
 	@Parameters("browser")
 	public void setUpDriver(String browser) {
-		WebDriverFunction.startRemoteBrowser(browser);
+		driver.startRemoteBrowser(browser);
 		
 		Helper.logInfo("Web Driver has been set up!");
-		Waiter.init(WebDriverFunction.driver, 30);
+		Waiter.init(driver, 30);
 		
 	}
 	
-	@AfterTest
+	@AfterClass
 	public void tearDownDriver() {
-		WebDriverFunction.quitDriver();
+		driver.quitDriver();
 	}
 	
 

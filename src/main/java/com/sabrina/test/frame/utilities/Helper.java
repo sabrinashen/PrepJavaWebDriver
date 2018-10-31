@@ -1,6 +1,7 @@
 package com.sabrina.test.frame.utilities;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 
@@ -8,7 +9,7 @@ import com.sabrina.test.frame.elements.ElementBase;
 
 public class Helper {
 	
-	private static Logger log = Logger.getLogger(Helper.class);
+	private static Logger log = LogManager.getLogger(Helper.class);
 	
 	public static void logInfo(String msg) {
 		log.info("INFO - " + msg);
