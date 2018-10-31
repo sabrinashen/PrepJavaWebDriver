@@ -21,16 +21,23 @@ pipeline {
     	}
     }
       
-    stage('run script') {
+//    stage('run script') {
+//      steps {
+//      	parallel(
+//               "chrome-module":{
+//               	sh 'mvn test -DsuiteXmlFile=chrome_test.xml'
+//               },
+//               "firefox-module":{
+//               	sh 'mvn test -DsuiteXmlFile=firefox_test.xml'
+//               }
+//        )
+//      }
+//    }
+//  }
+  
+  	stage('run script') {
       steps {
-      	parallel(
-               "chrome-module":{
-               	sh 'mvn test -DsuiteXmlFile1=chrome_test.xml -DsuiteXmlFile2=firefox_test.xml'
-               },
-               "firefox-module":{
-               	sh 'mvn test -DsuiteXmlFile=firefox_test.xml'
-               }
-        )
+      	sh 'mvn test -DsuiteXmlFile1=chrome_test.xml -DsuiteXmlFile2=firefox_test.xml'
       }
     }
   }
