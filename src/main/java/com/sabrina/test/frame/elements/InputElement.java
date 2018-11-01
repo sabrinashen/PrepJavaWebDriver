@@ -2,6 +2,8 @@ package com.sabrina.test.frame.elements;
 
 import org.openqa.selenium.Keys;
 
+import com.sabrina.test.frame.utilities.Helper;
+
 public class InputElement extends ElementBase {
 
 	public InputElement(String type, String value, String name) {
@@ -9,8 +11,13 @@ public class InputElement extends ElementBase {
 	}
 	
 	public void input(String content) {
-		this.getWebElement().sendKeys(content);
-		this.getWebElement().sendKeys(Keys.TAB);
+		try {
+			this.getWebElement().sendKeys(content);
+			this.getWebElement().sendKeys(Keys.TAB);
+		} catch (Exception e) {
+			Helper.logException("Get Unknown Exception", e);
+		}
+		
 	}
 
 }

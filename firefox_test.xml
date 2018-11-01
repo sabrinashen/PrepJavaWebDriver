@@ -1,13 +1,13 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Firefox Demo Suite" parallel="classes" thread-count="5">
 	<test name="firefox demo test">
-		<parameter name="browser" value="chrome" />
+		<parameter name="browser" value="firefox" />
 
 		<classes> 
-			<class name="com.sabrina.test.cases.GoogleHomeButtonCheck"></class>
-			<class name="com.sabrina.test.cases.GoogleHomeButtonCheck2"></class>
-			<!-- <class name="com.sabrina.test.cases.GoogleHomeButtonCheck3"></class> 
-			<class name="com.sabrina.test.cases.GoogleHomeButtonCheck4"></class>  -->
+			<!-- <class name="com.sabrina.test.cases.GoogleHomeButtonCheck"></class>
+			<class name="com.sabrina.test.cases.GoogleHomeButtonCheck2"></class> -->
+			<class name="com.sabrina.test.cases.GoogleHomeButtonCheck3"></class> 
+			<class name="com.sabrina.test.cases.GoogleHomeButtonCheck4"></class>
 			
 		</classes>
 	</test>

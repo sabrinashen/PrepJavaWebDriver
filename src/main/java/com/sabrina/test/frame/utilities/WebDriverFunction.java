@@ -20,6 +20,14 @@ public class WebDriverFunction implements WebDriver {
 	
 	WebDriver driver;
 
+	public WebDriver getDriver() {
+		return driver;
+	}
+
+	public void setDriver(WebDriver driver) {
+		this.driver = driver;
+	}
+
 	public void startBrowser(String browser) {
 		if (browser.equals("chrome") || browser.equals("Chrome")) {
 			driver = new ChromeDriver();
@@ -29,6 +37,7 @@ public class WebDriverFunction implements WebDriver {
 			driver = new ChromeDriver();
 		}
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		this.setDriver(driver);
 	}
 	
 	public void startRemoteBrowser(String browser) {
@@ -49,6 +58,7 @@ public class WebDriverFunction implements WebDriver {
 			Helper.logException("Failed to Start Remote Driver with exectption", e);
 		}
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		this.setDriver(driver);
 	}
 	
 	public void quitDriver() {

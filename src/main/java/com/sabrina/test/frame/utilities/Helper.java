@@ -2,8 +2,6 @@ package com.sabrina.test.frame.utilities;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
@@ -14,6 +12,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.ITestContext;
 
 import com.sabrina.test.frame.elements.ElementBase;
 
@@ -21,9 +20,14 @@ public class Helper {
 
 	private static Logger log = LogManager.getLogger(Helper.class);
 	private static WebDriver driver;
+	private static ITestContext context;
 	
 	public static void setWebDriver(WebDriver d) {
 		driver = d;
+	}
+	
+	public static void setITestContext(ITestContext c) {
+		context = c;
 	}
 
 	public static void logInfo(String msg) {
@@ -31,20 +35,15 @@ public class Helper {
 	}
 
 	public static void logException(String msg, Throwable t) {
-		log.error("ERROR with EXCEPTION - " + msg, t);
-		Helper.takeScreenshot(Helper.driver, "");
+		String imgName = Helper.takeScreenshot();
+		log.error("ERROR - Has SCREENSHOT "+ imgName +" with EXCEPTION - " + msg, t);
 		Assert.fail(msg, t);
 	}
 
 	public static void logError(String msg) {
-		log.error(msg);
-		Helper.takeScreenshot(Helper.driver, "");
+		String imgName = Helper.takeScreenshot();
+		log.error("ERROR - Has SCREENSHOT "+ imgName +" - " + msg);
 		Assert.fail(msg);
-	}
-	
-	public static String getPath() {
-		return System.getProperty("user.dir");
-		
 	}
 
 	public enum ByTypeEnum {
@@ -92,25 +91,26 @@ public class Helper {
 	 * @return a string type time.
 	 */
 	public static String fileNameByTime() {
-		return new java.text.SimpleDateFormat("yyyy-MM-dd HHmmss")
+		return new java.text.SimpleDateFormat("yyyyMMddHHmmss")
 				.format(new Date());
 	}
 	
-	public static String takeScreenshot(WebDriver driver, String fileWithPath) {
+	public static String getCurrentTestName() {
+		Class<?> x = context.getSuite().getAllMethods().listIterator().next().getRealClass();
+//		System.out.println(x.getName().substring(x.getName().lastIndexOf(".")+1));
+		return x.getName();
+	}
+	
+	public static String takeScreenshot() {
 		Helper.logInfo("Start to capture screen shot...");
 		String outputDirectory = System.getProperty("user.dir")+"/target/surefire-reports/log/";
-		//Path path = Paths.get(outputDirectory);
-		//System.out.println("path=======> " + path.toString());
-		String imageName = Helper.fileNameByTime() + ".png";
-		System.out.println("directory=======> " + outputDirectory);
-		System.out.println("imgname=======> " + imageName);
-		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		String imageName = Helper.getCurrentTestName() + "_" + Helper.fileNameByTime() + ".png";
 		try {
+			File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 			FileUtils.copyFile(scrFile, new File(outputDirectory + imageName));
 			Helper.logInfo("Capturing screen shot succeeded!");
 		} catch (IOException e) {
-			Helper.logException("Capturing screen shot failed!", e.fillInStackTrace());
-			e.printStackTrace();
+			Helper.logException("Capturing screen shot failed!", e);
 		}
 		return imageName;
 	}

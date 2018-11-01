@@ -11,16 +11,16 @@ public class GoogleHomeButtonCheck extends BaseTestRun {
 	
 	@Test
 	public void clickGoogleSearchButton() {
-		getDriver().get("http://www.google.com");
-		GoogleHomePage googleHomePage = new GoogleHomePage(getDriver());
+		driverFunc.get("http://www.google.com");
+		GoogleHomePage googleHomePage = new GoogleHomePage(driverFunc);
 		googleHomePage.inptSearch().isDisplayed();
 		googleHomePage.inptSearch().input("Sabrina");
 		googleHomePage.btnGoogleSearch().click();
-		GoogleResultPage googleResultPage = new GoogleResultPage(getDriver());
+		GoogleResultPage googleResultPage = new GoogleResultPage(driverFunc);
 		googleResultPage.lnkFirst().isDisplayed();
 		googleResultPage.baseTopNavBar().isDisplayed();
 		googleResultPage.lnkFirst().click();
-		getDriver().getCurrentUrl();
+		driverFunc.getCurrentUrl();
 		googleResultPage.lnkCannotLocate().isDisplayed();
 		
 		
