@@ -36,14 +36,17 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.1</version>
                 <configuration>
-                	<parallel>true</parallel>
-                	<!-- <systemPropertyVariables>
-        				<log4j2.configuration>src/main/java/log4j2.xml</log4j2.configuration>
-      				</systemPropertyVariables> -->
                     <suiteXmlFiles>
                         <suiteXmlFile>${suiteXmlFile1}</suiteXmlFile>
                         <suiteXmlFile>${suiteXmlFile2}</suiteXmlFile>
                     </suiteXmlFiles>
+                    <!-- run in parallel -->
+                    <properties>
+            			<property>
+              				<name>suitethreadpoolsize</name>
+              				<value>2</value>
+            			</property>
+          			</properties>
                     <!-- <redirectTestOutputToFile>true</redirectTestOutputToFile> -->
                 </configuration>
             </plugin>

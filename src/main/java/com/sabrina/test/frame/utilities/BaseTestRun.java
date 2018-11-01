@@ -20,16 +20,13 @@ public class BaseTestRun {
 	@Parameters("browser")
 	public void setUpDriver(String browser) {
 		driver.startRemoteBrowser(browser);
-		
-		Helper.logInfo("Web Driver has been set up!");
+		Helper.logInfo(browser.toUpperCase() + " Web Driver has been set up!");
 		Waiter.init(driver, 30);
-		
 	}
 	
 	@AfterClass
 	public void tearDownDriver() {
 		driver.quitDriver();
 	}
-	
 
 }

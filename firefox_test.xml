@@ -3,10 +3,12 @@
 	<test name="firefox demo test">
 		<parameter name="browser" value="firefox" />
 
-		<!-- <classes> <class name="com.sabrina.test.cases.GoogleHomeButtonCheck2"></class> 
-			</classes> -->
-		<packages>
-			<package name="com.sabrina.test.cases" />
-		</packages>
+		<classes> 
+			<!-- <class name="com.sabrina.test.cases.GoogleHomeButtonCheck"></class> 
+			<class name="com.sabrina.test.cases.GoogleHomeButtonCheck2"></class>  -->
+			<class name="com.sabrina.test.cases.GoogleHomeButtonCheck3"></class> 
+			<class name="com.sabrina.test.cases.GoogleHomeButtonCheck4"></class> 
+			
+		</classes>
 	</test>
 </suite>
