@@ -9,8 +9,8 @@ pipeline {
       steps {
       	sh 'sudo docker-compose down'
       	sh 'sudo docker-compose up -d'
-      	sh 'sudo docker-compose scale chrome=3'
-      	sh 'sudo docker-compose scale firefox=3'
+      	sh 'sudo docker-compose scale chrome=5'
+      	sh 'sudo docker-compose scale firefox=5'
       	sh 'sudo docker ps -a'
       }
     }

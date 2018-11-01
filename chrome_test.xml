@@ -7,7 +7,7 @@
 			<class name="com.sabrina.test.cases.GoogleHomeButtonCheck"></class> 
 			<class name="com.sabrina.test.cases.GoogleHomeButtonCheck2"></class> 
 			<class name="com.sabrina.test.cases.GoogleHomeButtonCheck3"></class> 
-			<!-- <class name="com.sabrina.test.cases.GoogleHomeButtonCheck4"></class>  -->
+			<class name="com.sabrina.test.cases.GoogleHomeButtonCheck4"></class>
 			
 		</classes>
 		<!-- <packages>
