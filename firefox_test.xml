@@ -1,7 +1,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Firefox Demo Suite" parallel="classes" thread-count="5">
 	<test name="firefox demo test">
-		<parameter name="browser" value="firefox" />
+		<parameter name="browser" value="chrome" />
 
 		<classes> 
 			<class name="com.sabrina.test.cases.GoogleHomeButtonCheck"></class>
