@@ -99,9 +99,10 @@ public class Helper {
 	public static String takeScreenshot(WebDriver driver, String fileWithPath) {
 		Helper.logInfo("Start to capture screen shot...");
 		String outputDirectory = System.getProperty("user.dir")+"/target/surefire-reports/log/";
-		Path path = Paths.get(outputDirectory);
-		System.out.println("path=======> " + path.toString());
+		//Path path = Paths.get(outputDirectory);
+		//System.out.println("path=======> " + path.toString());
 		String imageName = Helper.fileNameByTime() + ".png";
+		System.out.println("directory=======> " + outputDirectory);
 		System.out.println("imgname=======> " + imageName);
 		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		try {

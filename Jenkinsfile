@@ -34,7 +34,7 @@ pipeline {
 //      }
 //    }
 //  }
-  
+
   	stage('run script') {
       steps {
       	sh 'mvn test -DsuiteXmlFile1=chrome_test.xml -DsuiteXmlFile2=firefox_test.xml'
