@@ -47,6 +47,7 @@ pipeline {
 		sh 'echo "selenium grid down"'
 		sh 'sudo docker-compose down'
 		archiveArtifacts artifacts: 'target/surefire-reports/**', fingerprint: true
+		archiveArtifacts artifacts: 'log/**', fingerprint: true
   	}
   }
 }
