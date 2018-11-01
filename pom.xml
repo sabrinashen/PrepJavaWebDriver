@@ -8,7 +8,7 @@
 	<packaging>jar</packaging>
 	<name>PrepJavaWebDriver</name>
 	<url>http://maven.apache.org</url>
-	
+
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -16,42 +16,42 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<!-- <log4j2.configuration>src/main/java/log4j2.xml</log4j2.configuration> -->
 	</properties>
-	
-	
-	
+
+
+
 	<build>
 		<resources>
-      		<resource>
-          		<directory>src/main/java</directory>
-          		<includes>
-              		<include>log4j2.xml</include>
-          		</includes>
-          		<!-- <targetPath>target/surefire-reports</targetPath> -->
-      		</resource>
-  		</resources>
-        
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.22.1</version>
-                <configuration>
-                    <suiteXmlFiles>
-                        <suiteXmlFile>${suiteXmlFile1}</suiteXmlFile>
-                        <suiteXmlFile>${suiteXmlFile2}</suiteXmlFile>
-                    </suiteXmlFiles>
-                    <!-- run in parallel -->
-                    <properties>
-            			<property>
-              				<name>suitethreadpoolsize</name>
-              				<value>2</value>
-            			</property>
-          			</properties>
-                    <!-- <redirectTestOutputToFile>true</redirectTestOutputToFile> -->
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>log4j2.xml</include>
+				</includes>
+				<!-- <targetPath>target/surefire-reports</targetPath> -->
+			</resource>
+		</resources>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.22.1</version>
+				<configuration>
+					<suiteXmlFiles>
+						<suiteXmlFile>${suiteXmlFile1}</suiteXmlFile>
+						<suiteXmlFile>${suiteXmlFile2}</suiteXmlFile>
+					</suiteXmlFiles>
+					<!-- run in parallel -->
+					<properties>
+						<property>
+							<name>suitethreadpoolsize</name>
+							<value>2</value>
+						</property>
+					</properties>
+					<!-- <redirectTestOutputToFile>true</redirectTestOutputToFile> -->
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/junit/junit -->
@@ -77,23 +77,20 @@
 
 		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
 		<dependency>
-    		<groupId>org.apache.logging.log4j</groupId>
-    		<artifactId>log4j-core</artifactId>
-    		<version>2.11.1</version>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.11.1</version>
 		</dependency>
-		
-		<!--  https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
+
+		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
 		<dependency>
-    		<groupId>org.apache.logging.log4j</groupId>
-    		<artifactId>log4j-api</artifactId>
-    		<version>2.11.1</version>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>2.11.1</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl -->
-		<!-- <dependency>
-   			<groupId>org.apache.logging.log4j</groupId>
-    		<artifactId>log4j-slf4j-impl</artifactId>
-    		<version>2.11.1</version>
-		</dependency> -->
+		<!-- <dependency> <groupId>org.apache.logging.log4j</groupId> <artifactId>log4j-slf4j-impl</artifactId> 
+			<version>2.11.1</version> </dependency> -->
 
 		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
 		<dependency>
@@ -129,7 +126,16 @@
 			<artifactId>commons-lang3</artifactId>
 			<version>3.8</version>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.6</version>
+		</dependency>
+
 	</dependencies>
+
 </project>
 
 

@@ -3,7 +3,6 @@ package com.sabrina.test.cases;
 import org.testng.annotations.Test;
 
 import com.sabrina.test.frame.utilities.BaseTestRun;
-import com.sabrina.test.frame.utilities.WebDriverFunction;
 import com.sabrina.test.library.page.GoogleHomePage;
 import com.sabrina.test.library.page.GoogleResultPage;
 
@@ -22,7 +21,7 @@ public class GoogleHomeButtonCheck extends BaseTestRun {
 		googleResultPage.baseTopNavBar().isDisplayed();
 		googleResultPage.lnkFirst().click();
 		getDriver().getCurrentUrl();
-//		googleResultPage.lnkCannotLocate().isDisplayed();
+		googleResultPage.lnkCannotLocate().isDisplayed();
 		
 		
 	}

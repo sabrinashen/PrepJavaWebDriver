@@ -1,11 +1,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Chrome Demo Suite" parallel="classes" thread-count="3">
+<suite name="Chrome Demo Suite" parallel="classes" thread-count="2">
 	<test name="chrome demo test">
 		<parameter name="browser" value="chrome" />
 
 		<classes> 
-			<class name="com.sabrina.test.cases.GoogleHomeButtonCheck"></class> 
-			<class name="com.sabrina.test.cases.GoogleHomeButtonCheck2"></class> 
+			<!-- <class name="com.sabrina.test.cases.GoogleHomeButtonCheck"></class> 
+			<class name="com.sabrina.test.cases.GoogleHomeButtonCheck2"></class>  -->
 			<class name="com.sabrina.test.cases.GoogleHomeButtonCheck3"></class> 
 			<class name="com.sabrina.test.cases.GoogleHomeButtonCheck4"></class>
 			

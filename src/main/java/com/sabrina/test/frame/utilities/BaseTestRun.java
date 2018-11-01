@@ -20,7 +20,8 @@ public class BaseTestRun {
 	@Parameters("browser")
 	public void setUpDriver(String browser) {
 		driver.startRemoteBrowser(browser);
-		Helper.logInfo(browser.toUpperCase() + " Web Driver has been set up!");
+		Helper.logInfo(browser.toUpperCase() + " Driver has been set up!");
+		Helper.setWebDriver(driver);
 		Waiter.init(driver, 30);
 	}
 	
