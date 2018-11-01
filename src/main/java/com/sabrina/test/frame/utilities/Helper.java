@@ -41,6 +41,11 @@ public class Helper {
 		Helper.takeScreenshot(Helper.driver, "");
 		Assert.fail(msg);
 	}
+	
+	public static String getPath() {
+		return System.getProperty("user.dir");
+		
+	}
 
 	public enum ByTypeEnum {
 		name, xpath, id, className, cssSelector, linkText, partialLinkText, tagName
@@ -93,7 +98,7 @@ public class Helper {
 	
 	public static String takeScreenshot(WebDriver driver, String fileWithPath) {
 		Helper.logInfo("Start to capture screen shot...");
-		String outputDirectory = "./target/surefire-reports/screentshot/";
+		String outputDirectory = System.getProperty("user.dir")+"/target/surefire-reports/log/";
 		Path path = Paths.get(outputDirectory);
 		System.out.println("path=======> " + path.toString());
 		String imageName = Helper.fileNameByTime() + ".png";
