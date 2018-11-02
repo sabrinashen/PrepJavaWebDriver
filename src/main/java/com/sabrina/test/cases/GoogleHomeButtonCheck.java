@@ -21,6 +21,7 @@ public class GoogleHomeButtonCheck extends BaseTestRun {
 		googleResultPage.baseTopNavBar().isDisplayed();
 		googleResultPage.lnkFirst().click();
 		driverFunc.getCurrentUrl();
+//		this will fail
 		googleResultPage.lnkCannotLocate().isDisplayed();
 		
 		
