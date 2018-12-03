@@ -8,16 +8,16 @@
             <!-- <PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/> -->
         	<PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] - %msg%n"/>
         </File>
-        <File name="ErrorFile" fileName="target/surefire-reports/log/error.log" immediateFlush="false" append="true">
+<!--         <File name="ErrorFile" fileName="target/surefire-reports/log/error.log" immediateFlush="false" append="true">
             <PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
         	<PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] - %msg%n"/>
-        </File>
+        </File> -->
     </Appenders>
     <Loggers>
         <Root level="debug">
             <AppenderRef ref="Console" />
             <AppenderRef ref="LogFile" />
-            <AppenderRef ref="ErrorFile" level="error" />
+            <!-- <AppenderRef ref="ErrorFile" level="error" /> -->
         </Root>
     </Loggers>
 </Configuration>
